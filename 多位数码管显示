@@ -1,0 +1,105 @@
+void setup()
+{
+  pinMode(7, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(13, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(4,OUTPUT);
+  pinMode(2,OUTPUT);
+  pinMode(3,OUTPUT);
+  pinMode(5,OUTPUT);
+  Serial.begin(9600);
+}
+int income  =0;
+int num=-1;
+int i=0;
+
+void loop()
+{
+  digitalWrite(5,HIGH);
+digitalWrite(4,HIGH);
+digitalWrite(3,HIGH);
+digitalWrite(2,HIGH);
+  	if(Serial.available()>0){
+      num=(num+1)%4;i=num+2;
+   		digitalWrite(i,LOW);
+    	income = Serial.read();
+      display(income,i);
+  }
+}
+void display(int n,int num){
+      switch(n){
+      case '0':
+      digitalWrite(13,LOW);
+      digitalWrite(12,LOW);
+      digitalWrite(8,LOW);
+      digitalWrite(7,LOW);
+      digitalWrite(num,HIGH);
+       break;
+      case '1':
+      digitalWrite(13,LOW);
+      digitalWrite(12,LOW);
+      digitalWrite(8,LOW);
+      digitalWrite(7,HIGH);
+      digitalWrite(num,HIGH);
+        break;
+      case '2':
+      digitalWrite(13,LOW);
+      digitalWrite(12,LOW);
+      digitalWrite(8,HIGH);
+      digitalWrite(7,LOW);
+      digitalWrite(num,HIGH);
+        break;
+      case '3':
+      digitalWrite(13,LOW);
+      digitalWrite(12,LOW);
+      digitalWrite(8,HIGH);
+      digitalWrite(7,HIGH);
+      digitalWrite(num,HIGH);
+        break;
+      case '4':
+      digitalWrite(13,LOW);
+      digitalWrite(12,HIGH);
+      digitalWrite(8,LOW);
+      digitalWrite(7,LOW);
+      digitalWrite(num,HIGH);
+        break;
+      case '5':
+      digitalWrite(13,LOW);
+      digitalWrite(12,HIGH);
+      digitalWrite(8,LOW);
+      digitalWrite(7,HIGH);
+      digitalWrite(num,HIGH);
+        break;
+      case '6':
+      digitalWrite(13,LOW);
+      digitalWrite(12,HIGH);
+      digitalWrite(8,HIGH);
+      digitalWrite(7,LOW);
+      digitalWrite(num,HIGH);
+        break;
+      case '7':
+      digitalWrite(13,LOW);
+      digitalWrite(12,HIGH);
+      digitalWrite(8,HIGH);
+      digitalWrite(7,HIGH);
+      digitalWrite(num,HIGH);
+        break;
+      case '8':
+      digitalWrite(13,HIGH);
+      digitalWrite(12,LOW);
+      digitalWrite(8,LOW);
+      digitalWrite(7,LOW);
+      digitalWrite(num,HIGH);
+        break;
+      case '9':
+      digitalWrite(13,HIGH);
+      digitalWrite(12,LOW);
+      digitalWrite(8,LOW);
+      digitalWrite(7,HIGH);
+      digitalWrite(num,HIGH);
+        break;
+      default:
+      	break;
+      }
+}
