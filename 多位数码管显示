@@ -103,3 +103,4 @@ void display(int n,int num){
       	break;
       }
 }
+//cnms
